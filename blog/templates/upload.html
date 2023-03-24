@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload and Filter Image</title>
+</head>
+<body>
+    {% if uploaded_file_url %}
+        <h2>Uploaded Image:</h2>
+        <img src="{{ uploaded_file_url }}" alt="Uploaded Image">
+        {% if filtered_file_url %}
+            <h2>Filtered Image:</h2>
+            <img src="{{ filtered_file_url }}" alt="Filtered Image">
+        {% endif %}
+    {% endif %}
+
+    <h2>Upload Image:</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image">
+        <br><br>
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>
